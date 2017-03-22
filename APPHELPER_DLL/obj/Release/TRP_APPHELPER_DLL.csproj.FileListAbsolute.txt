@@ -1,0 +1,8 @@
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\bin\Release\TRP_APPHELPER_DLL.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\bin\Release\TRP_APPHELPER_DLL.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.csprojResolveAssemblyReference.cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.NodeEditorFile.NodesControl.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.Properties.Resources.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.csproj.GenerateResource.Cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Release\TRP_APPHELPER_DLL.pdb

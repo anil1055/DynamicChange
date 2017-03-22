@@ -1,0 +1,13 @@
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiDLL\bin\Debug\TerapiDLL.dll
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiDLL\bin\Debug\TerapiDLL.pdb
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiDLL\obj\Debug\TerapiDLL.csprojResolveAssemblyReference.cache
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiDLL\obj\Debug\TerapiDLL.dll
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiDLL\obj\Debug\TerapiDLL.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\bin\Debug\TerapiDLL.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\bin\Debug\TerapiDLL.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.csprojResolveAssemblyReference.cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.NodeEditorFile.NodesControl.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.Properties.Resources.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.csproj.GenerateResource.Cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiDLL\obj\Debug\TerapiDLL.pdb

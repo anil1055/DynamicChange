@@ -1,0 +1,8 @@
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\bin\Debug\TRP_APPHELPER_DLL.dll
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\bin\Debug\TRP_APPHELPER_DLL.pdb
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\APPHELPER_DLL.csprojResolveAssemblyReference.cache
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\TRP_APPHELPER_DLL.NodeEditorFile.NodesControl.resources
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\TRP_APPHELPER_DLL.Properties.Resources.resources
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\APPHELPER_DLL.csproj.GenerateResource.Cache
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\TRP_APPHELPER_DLL.dll
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\XMLMesajSorgu\APPHELPER_DLL\obj\Debug\TRP_APPHELPER_DLL.pdb

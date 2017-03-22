@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APPHELPER_DLL", "APPHELPER_DLL\APPHELPER_DLL.csproj", "{322163D9-FF73-4C6D-8D1D-95ACC3EA1B82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APPHELPER_TEST", "APPHELPER_TEST\APPHELPER_TEST.csproj", "{5D75C877-B4C0-4191-AF3C-D286A2435017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP_TEST", "TRP_APP_TEST\APP_TEST.csproj", "{55811F35-F41B-49D2-8931-714DE0F10E45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APPHELPER_IDE", "APPHELPER_IDE\APPHELPER_IDE.csproj", "{9B6AD2D2-CD30-4AAD-A097-8B137106767E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{322163D9-FF73-4C6D-8D1D-95ACC3EA1B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322163D9-FF73-4C6D-8D1D-95ACC3EA1B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322163D9-FF73-4C6D-8D1D-95ACC3EA1B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322163D9-FF73-4C6D-8D1D-95ACC3EA1B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D75C877-B4C0-4191-AF3C-D286A2435017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D75C877-B4C0-4191-AF3C-D286A2435017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D75C877-B4C0-4191-AF3C-D286A2435017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D75C877-B4C0-4191-AF3C-D286A2435017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55811F35-F41B-49D2-8931-714DE0F10E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55811F35-F41B-49D2-8931-714DE0F10E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55811F35-F41B-49D2-8931-714DE0F10E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55811F35-F41B-49D2-8931-714DE0F10E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6AD2D2-CD30-4AAD-A097-8B137106767E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6AD2D2-CD30-4AAD-A097-8B137106767E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6AD2D2-CD30-4AAD-A097-8B137106767E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6AD2D2-CD30-4AAD-A097-8B137106767E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

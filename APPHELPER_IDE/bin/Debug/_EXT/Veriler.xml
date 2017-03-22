@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PROJE>
+  <ayarlar>
+    <aciklama>Kontensan TINERP projesi işlerini kapsar</aciklama>
+    <baglanti>Server=LOCALHOST;Database=GO3;User Id=SA;Password=;</baglanti>
+    <firma>121</firma>
+    <donem>01</donem>
+  </ayarlar>
+  <sorgular>
+    <sorgu>
+      <Adi>MalzemeOzellikInfo</Adi>
+      <Aciklama>Kriter set satirlari icin eklendi</Aciklama>
+      <Sorgu_metin>
+SELECT * FROM {ITEMS} 
+WHERE NAME LIKE @Param1 {AltSorgu(1)}
+</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@Param1">%E</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeOzellikDetay</Adi>
+      <Aciklama>Malzeme özellik satırları</Aciklama>
+      <Sorgu_metin>
+SELECT 
+CHARVAL.*
+FROM {CHARSETASGN} CHARSETASGN
+INNER JOIN {CHARCODE} CHARCODE ON CHARVAL.CHARCODEREF = CHARCODE.LOGICALREF CHARSETASGN.LINENR  
+WHERE
+    CHARCODE.LOGICALREF = @_CHARCODE_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="_CHARCODE_REF">8</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>KURULUM</Adi>
+      <Aciklama>Kurulumda çalıştırılacak kısım</Aciklama>
+      <Sorgu_metin>
+--VAR ISE OLUSTURMAMALI, KONTROL EKLENMELİ
+CREATE TABLE [dbo].[TRP_TIN_ITEM_CODE_PART](
+	[LOGICALREF] [int] IDENTITY(1,1) NOT NULL,
+	[FIRM_NO] [int] NOT NULL,
+	[MAIN1_CHARVAL_REF] [int] NOT NULL,
+	[MAIN2_CHARVAL_REF] [int] NOT NULL,
+	[NOTE] [nvarchar](255) NOT NULL,
+	[REC_ADD_DATE] [datetime] NOT NULL,
+	[REC_ADD_USERS_REF] [int] NOT NULL,
+	[REC_UPD_DATE] [datetime] NOT NULL,
+	[REC_UPD_USERS_REF] [int] NOT NULL,
+	[ACTIVE] [int] NULL,
+ CONSTRAINT [PK_TRP_TIN_ITEM_CODE_PART] PRIMARY KEY CLUSTERED 
+(
+	[LOGICALREF] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_TRP_TIN_ITEM_CODE_PART] ON [dbo].[TRP_TIN_ITEM_CODE_PART]
+(
+	[FIRM_NO] ASC,
+	[MAIN1_CHARVAL_REF] ASC,
+	[MAIN2_CHARVAL_REF] ASC,
+	[ACTIVE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[TRP_TIN_ITEM_CODE_PART_LINE](
+	[LOGICALREF] [int] IDENTITY(1,1) NOT NULL,
+	[ITEM_CODE_PART_REF] [int] NOT NULL,
+	[CHARCODE_REF] [int] NOT NULL,
+	[REQUIRED] [int] NOT NULL,
+	[LINE_NO] [int] NOT NULL,
+ CONSTRAINT [PK__TRP_TIN___11B8C5C12BD34AC9] PRIMARY KEY CLUSTERED 
+(
+	[LOGICALREF] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 100) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+</Sorgu_metin>
+      <Kurulum>true</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeTanimAnaKriterInfo</Adi>
+      <Aciklama>Sor sorma bolumunde ilk kirilimin doldurulacagi kismi getirir</Aciklama>
+      <Sorgu_metin>
+SELECT
+  CHARSET.LOGICALREF, CHARSET.CODE, CHARSET.NAME,
+  CHARCODE.LOGICALREF AS CHARCODE_REF, CHARCODE.CODE AS CHARCODE_CODE, CHARCODE.NAME AS CHARCODE_NAME,
+  CHARVAL.LOGICALREF AS CHARVAL_REF, CHARVAL.VALNO AS CHARVAL_VALNO, CHARVAL.CODE AS CHARVAL_CODE, CHARVAL.NAME AS CHARVAL_NAME, CHARVAL.NAME2 AS CHARVAL_NAME2,
+  CHARSETASGN.LINENR AS CHARSETASGN_LINENR
+FROM {CHARSET} CHARSET
+  INNER JOIN {CHARSETASGN} CHARSETASGN ON CHARSETASGN.CHARSETREF = CHARSET.[LOGICALREF]
+  INNER JOIN {CHARCODE} CHARCODE ON CHARSETASGN.CHARCODEREF = CHARCODE.[LOGICALREF]
+  INNER JOIN {CHARVAL} CHARVAL ON CHARVAL.CHARCODEREF = CHARCODE.LOGICALREF
+WHERE
+  CHARCODE.CODE = @_CHARCODE_CODE --'HM_TEMPER'
+ORDER BY
+  CHARSETASGN.[LINENR], CHARVAL.VALNO
+</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_CHARCODE_CODE">YM_MALZEMECINSI</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeTanimKriter2Info</Adi>
+      <Aciklama>Sor sorma bolumunde ikinci kirilimin doldurulacagi kismi getirir</Aciklama>
+      <Sorgu_metin>
+--ASLINDA BURADA SELECT 'HM_TEMPER' GIBI BIR SORGU LAZIM
+SELECT
+  CHARSET.LOGICALREF, CHARSET.CODE, CHARSET.NAME,
+  CHARCODE.LOGICALREF AS CHARCODE_REF, CHARCODE.CODE AS CHARCODE_CODE, CHARCODE.NAME AS CHARCODE_NAME,
+  CHARSETASGN.LINENR AS CHARSETASGN_LINENR
+FROM {CHARSET} CHARSET
+  INNER JOIN {CHARSETASGN} CHARSETASGN ON CHARSETASGN.CHARSETREF = CHARSET.[LOGICALREF]
+  INNER JOIN {CHARCODE} CHARCODE ON CHARSETASGN.CHARCODEREF = CHARCODE.[LOGICALREF]
+WHERE
+  CHARCODE.CODE = 'HM_KALINLIK'
+ORDER BY
+  CHARSETASGN.[LINENR]
+</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimListesi</Adi>
+      <Aciklama>Sor sorma listesi getirir</Aciklama>
+      <Sorgu_metin>
+SELECT
+    PART.LOGICALREF, 
+    PART.NOTE AS [NOTE;Caption:Açıklama], 
+    PART.REC_ADD_DATE AS [REC_ADD_DATE;Caption:Kayıt Ekleme Tarihi], 
+    PART.REC_UPD_DATE AS [REC_UPD_DATE;Caption:Kayıt Güncelleme Tarihi],
+    CASE PART.ACTIVE WHEN 0 THEN 'Kullanımda' ELSE 'Kullanım Dışı' END AS [ACTIVE;Caption:Kullanım Durumu],
+    CHARVAL1.CODE AS [CHARVAL1_CODE;Caption:Malzeme Cinsi], CHARVAL1.NAME AS [CHARVAL1_NAME;Caption:Malzeme Cinsi Adı],
+    CHARVAL2.CODE AS [CHARVAL2_CODE;Caption:Kalıp Kodu], CHARVAL2.NAME AS [CHARVAL2_NAME;Caption:Kalıp Adı]
+FROM TRP_TIN_ITEM_CODE_PART PART
+    INNER JOIN {CHARVAL} CHARVAL1 ON PART.MAIN1_CHARVAL_REF = CHARVAL1.LOGICALREF
+    INNER JOIN {CHARVAL} CHARVAL2 ON PART.MAIN2_CHARVAL_REF = CHARVAL2.LOGICALREF
+WHERE FIRM_NO = {Firm}
+AND ACTIVE = @_ACTIVE
+ORDER BY PART.LOGICALREF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_ACTIVE">0</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeTanimKriter1Detay</Adi>
+      <Aciklama>MalzemeTanimKriter1Detay</Aciklama>
+      <Sorgu_metin>
+SELECT 
+CHARVAL.*
+FROM {CHARVAL} CHARVAL
+INNER JOIN {CHARCODE} CHARCODE ON CHARVAL.CHARCODEREF = CHARCODE.LOGICALREF
+WHERE
+    CHARCODE.LOGICALREF = @_CHARCODE_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_CHARCODE_REF">8</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimDetay</Adi>
+      <Aciklama>Malzeme kod tanım satırları</Aciklama>
+      <Sorgu_metin>
+SELECT PART_LINE.*,
+    CHARCODE.CODE AS CHARCODE_CODE, CHARCODE.NAME AS CHARCODE_NAME
+FROM 
+    TRP_TIN_ITEM_CODE_PART_LINE PART_LINE
+    INNER JOIN {CHARCODE} CHARCODE ON PART_LINE.CHARCODE_REF = CHARCODE.LOGICALREF
+WHERE ITEM_CODE_PART_REF = @_ITEM_CODE_PART_REF
+ORDER BY LINE_NO</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_ITEM_CODE_PART_REF">37</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimInfoGetir</Adi>
+      <Aciklama></Aciklama>
+      <Sorgu_metin>
+SELECT *
+FROM TRP_TIN_ITEM_CODE_PART
+WHERE LOGICALREF = @_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_REF">11</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimGuncelle</Adi>
+      <Aciklama>MALZEME kod tanim baslik kismini gunceller</Aciklama>
+      <Sorgu_metin>
+UPDATE TRP_TIN_ITEM_CODE_PART
+SET
+    FIRM_NO = @_FIRM_NO, 
+    MAIN1_CHARVAL_REF = @_MAIN1_CHARVAL_REF, 
+    MAIN2_CHARVAL_REF = @_MAIN2_CHARVAL_REF, 
+    NOTE = @_NOTE, 
+    REC_UPD_DATE = @_REC_UPD_DATE, 
+    REC_UPD_USERS_REF = @_REC_UPD_USERS_REF
+WHERE 
+    LOGICALREF = @_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimKaydet</Adi>
+      <Aciklama>MALZEME kod tanim baslik kismini kaydeder</Aciklama>
+      <Sorgu_metin>
+INSERT INTO TRP_TIN_ITEM_CODE_PART
+(
+    FIRM_NO, MAIN1_CHARVAL_REF, MAIN2_CHARVAL_REF, NOTE, 
+    REC_ADD_DATE, REC_ADD_USERS_REF, REC_UPD_DATE, REC_UPD_USERS_REF, ACTIVE
+)
+VALUES
+(
+    @_FIRM_NO, @_MAIN1_CHARVAL_REF, @_MAIN2_CHARVAL_REF, @_NOTE, 
+    @_REC_ADD_DATE, @_REC_ADD_USERS_REF, @_REC_UPD_DATE, @_REC_UPD_USERS_REF, 0
+)
+
+SELECT SCOPE_IDENTITY()</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimDetayGuncelle</Adi>
+      <Aciklama>MALZEME kod tanim satir kismini gunceller</Aciklama>
+      <Sorgu_metin>
+UPDATE TRP_TIN_ITEM_CODE_PART_LINE
+SET
+    ITEM_CODE_PART_REF = @_ITEM_CODE_PART_REF, 
+    CHARCODE_REF = @_CHARCODE_REF, 
+    REQUIRED = @_REQUIRED, 
+    LINE_NO = @_LINE_NO
+WHERE
+    LOGICALREF = @_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimDetayKaydet</Adi>
+      <Aciklama>MALZEME kod tanim satir kismini kaydeder</Aciklama>
+      <Sorgu_metin>
+INSERT INTO TRP_TIN_ITEM_CODE_PART_LINE
+([ITEM_CODE_PART_REF], CHARCODE_REF, [REQUIRED], [LINE_NO])
+VALUES
+(@_ITEM_CODE_PART_REF, @_CHARCODE_REF, @_REQUIRED, @_LINE_NO)
+
+SELECT SCOPE_IDENTITY()</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>ValidasyonMalzemeKodTanim</Adi>
+      <Aciklama></Aciklama>
+      <Sorgu_metin>
+SELECT COUNT(LOGICALREF)
+FROM TRP_TIN_ITEM_CODE_PART
+WHERE 
+    MAIN1_CHARVAL_REF = @_MAIN1_CHARVAL_REF
+    AND MAIN2_CHARVAL_REF = @_MAIN2_CHARVAL_REF
+    AND LOGICALREF &lt;&gt; @_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_MAIN1_CHARVAL_REF">36</parametre>
+      <parametre Name="@_MAIN2_CHARVAL_REF">44</parametre>
+      <parametre Name="@_REF">0</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKodTanimAKTIFGuncelle</Adi>
+      <Aciklama>Malzeme kod tanim listesinde AKTIF alanini gunceller</Aciklama>
+      <Sorgu_metin>
+UPDATE TRP_TIN_ITEM_CODE_PART
+SET ACTIVE = CASE ACTIVE WHEN 0 THEN 1 ELSE 0 END
+WHERE LOGICALREF = @_REF</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_ACTIVE">0</parametre>
+      <parametre Name="@_REF">37</parametre>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeBirimSetListesi</Adi>
+      <Aciklama>Malzeme birim setleri</Aciklama>
+      <Sorgu_metin>
+SELECT *
+FROM {UNITSETF}</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+    </sorgu>
+    <sorgu>
+      <Adi>MalzemeKartKodTanimGetir</Adi>
+      <Aciklama></Aciklama>
+      <Sorgu_metin>
+SELECT 
+    PART_LINE.*,
+    CHARCODE.CODE AS CHARCODE_CODE, CHARCODE.NAME AS CHARCODE_NAME
+FROM 
+    TRP_TIN_ITEM_CODE_PART_LINE PART_LINE
+    INNER JOIN TRP_TIN_ITEM_CODE_PART PART ON PART_LINE.ITEM_CODE_PART_REF = PART.LOGICALREF
+    INNER JOIN {CHARCODE} CHARCODE ON PART_LINE.CHARCODE_REF = CHARCODE.LOGICALREF
+WHERE --ITEM_CODE_PART_REF = @_ITEM_CODE_PART_REF
+    PART.MAIN1_CHARVAL_REF = @_PART_MAIN1_CHARVAL_REF
+    AND PART.MAIN2_CHARVAL_REF = @_PART_MAIN2_CHARVAL_REF
+    AND PART_LINE.REQUIRED = 1
+    AND PART.ACTIVE = 0
+ORDER BY LINE_NO</Sorgu_metin>
+      <Kurulum>false</Kurulum>
+      <parametre Name="@_ITEM_CODE_PART_REF">37</parametre>
+      <parametre Name="@_PART_MAIN1_CHARVAL_REF">39</parametre>
+      <parametre Name="@_PART_MAIN2_CHARVAL_REF">44</parametre>
+    </sorgu>
+  </sorgular>
+  <mesajlar>
+    <mesaj>
+      <Aciklama>APP_EXIT</Aciklama>
+      <Metin>Uygulamadan çıkış yapılacaktır, onaylıyor musunuz?</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>NOT_IMPLEMENTED</Aciklama>
+      <Metin>Bu kısım ile ilgili çalışmalar devam ediyor!</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_PART_REQUIRED</Aciklama>
+      <Metin>Sor</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_PART_NOT_REQUIRED</Aciklama>
+      <Metin>Sorma</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_SAVE_ERROR</Aciklama>
+      <Metin>Malzeme kod tanımı kaydedilemedi!Detay:{0}</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_PART_NOT_DEFINED</Aciklama>
+      <Metin>Malzeme kod tanımı eksik!</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_MAIN1_PART_NOT_DEFINED</Aciklama>
+      <Metin>Malzeme cinsi girilmeli!</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_MAIN2_PART_NOT_DEFINED</Aciklama>
+      <Metin>Kalıp kodu girilmeli!</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CODE_MAIN1_MAIN2_ALREADY_DEFINED</Aciklama>
+      <Metin>Bu Malzeme Cinsi ve Kalıp Kodu zaten kayıtlı!</Metin>
+    </mesaj>
+    <mesaj>
+      <Aciklama>ITEM_CARD_MAIN1_MAIN2_NOT_DEFINED</Aciklama>
+      <Metin>Bu Malzeme Cinsi ve Kalıp Kodu için tanım yapılmamış!</Metin>
+    </mesaj>
+  </mesajlar>
+  <tablolar>
+    <tablo>
+      <Adi>ITEMS</Adi>
+      <Aciklama>ITEMS tablosu</Aciklama>
+      <Icerik>LG_{Firm}_ITEMS</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>CHARSET</Adi>
+      <Aciklama>CHARSET tablosu</Aciklama>
+      <Icerik>LG_{Firm}_CHARSET</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>CHARSETASGN</Adi>
+      <Aciklama>CHARSETASGN tablosu</Aciklama>
+      <Icerik>LG_{Firm}_CHARSETASGN</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>CHARCODE</Adi>
+      <Aciklama>CHARCODE tablosu</Aciklama>
+      <Icerik>LG_{Firm}_CHARCODE</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>CHARVAL</Adi>
+      <Aciklama>CHARVAL tablosu</Aciklama>
+      <Icerik>LG_{Firm}_CHARVAL</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>ITEM_CODE_PART_LINE</Adi>
+      <Aciklama>Sor sorma bilgilerinin tutuldugu tablo</Aciklama>
+      <Icerik>TRP_TIN_ITEM_CODE_PART_LINE</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>ITEM_CODE_PART</Adi>
+      <Aciklama>Sor sorma bilgilerinin tutuldugu tablo</Aciklama>
+      <Icerik>TRP_TIN_ITEM_CODE_PART</Icerik>
+    </tablo>
+    <tablo>
+      <Adi>UNITSETF</Adi>
+      <Aciklama>Birim setleri ana tablo</Aciklama>
+      <Icerik>LG_{Firm}_UNITSETF</Icerik>
+    </tablo>
+  </tablolar>
+  <yardim_mesajlar>
+    <yardim_mesaj>
+      <form_ismi>frmMalzemeKayit</form_ismi>
+      <icerik>Yardım mesaj açıklaması</icerik>
+    </yardim_mesaj>
+    <yardim_mesaj>
+      <form_ismi>frmMalzemeGuncelle</form_ismi>
+      <icerik>Yardım mesaj açıklaması</icerik>
+    </yardim_mesaj>
+    <yardim_mesaj>
+      <form_ismi>frmMalzemeSil</form_ismi>
+      <icerik>Yardım mesaj açıklaması</icerik>
+    </yardim_mesaj>
+    <yardim_mesaj>
+      <form_ismi>frmDenemeYardim</form_ismi>
+      <icerik>deneme yardım mesajı ekranı</icerik>
+    </yardim_mesaj>
+  </yardim_mesajlar>
+  <is_akislari>
+    <is_akis>
+      <Adi>MalzemeOzellik</Adi>
+      <Icerik>C05vZGVTeXN0ZW1Q6AMAAAQAAAAkNWFhMjE2NWQtODQ3Yi00YThiLThmNjQtZjM3NzA0YWNiMWVlAADoQgAAfEMBAQdTdGFydGVy/////wAAB1N0YXJ0ZXIAAAAACAAAAAAAAAD//+D/JDBiZDhjNThjLTg0MmQtNGQ1ZC05NjcyLTE0YTNlYTZlOWNlNgAAEEQAAH1DAQANWE1MIFNhdmUgRmlsZf7///8AAAtTaG93WG1sU2F2ZTcAAAAJc3RyUmVzdWx0KQAAAAABAAAA/////wEAAAAAAAAABAEAAAANU3lzdGVtLk9iamVjdAAAAAALCAAAAAAAAAD//+D/JDVlYmU1OWIxLWRiYjctNDdiNS04N2E0LWI4NWI1MzUxZmE1MgAAG0MAAIJCAAAIWE1MIERhdGH7////AAAPSW5wdXRRdWVyeVBhcmFtSQAAAAdpblZhbHVlGAAAAAABAAAA/////wEAAAAAAAAABgEAAAAACwhvdXRWYWx1ZRgAAAAAAQAAAP////8BAAAAAAAAAAYBAAAAAAsIAAAAAAAAAP//4P8kZWQ2NzhiYzItOWU5Zi00Nzc3LWJjZjMtYWExNmRlY2ZiNzE0AAC6QwAAgkIAAApRdWVyeSBEYXRh+v///wAACklucHV0UXVlcnn4AAAACVF1ZXJ5TmFtZRgAAAAAAQAAAP////8BAAAAAAAAAAYBAAAAAAsGUGFyYW0xGAAAAAABAAAA/////wEAAAAAAAAABgEAAAAACwZQYXJhbTIYAAAAAAEAAAD/////AQAAAAAAAAAGAQAAAAALBlBhcmFtMxgAAAAAAQAAAP////8BAAAAAAAAAAYBAAAAAAsGUGFyYW00GAAAAAABAAAA/////wEAAAAAAAAABgEAAAAACwZQYXJhbTUYAAAAAAEAAAD/////AQAAAAAAAAAGAQAAAAALBk91dHB1dBgAAAAAAQAAAP////8BAAAAAAAAAAYBAAAAAAsIAAAAAAAAAP//4P8DAAAAJDVhYTIxNjVkLTg0N2ItNGE4Yi04ZjY0LWYzNzcwNGFjYjFlZQRFeGl0JDBiZDhjNThjLTg0MmQtNGQ1ZC05NjcyLTE0YTNlYTZlOWNlNgVFbnRlcgAAAAAkNWViZTU5YjEtZGJiNy00N2I1LTg3YTQtYjg1YjUzNTFmYTUyCG91dFZhbHVlJGVkNjc4YmMyLTllOWYtNDc3Ny1iY2YzLWFhMTZkZWNmYjcxNAZQYXJhbTEAAAAAJGVkNjc4YmMyLTllOWYtNDc3Ny1iY2YzLWFhMTZkZWNmYjcxNAZPdXRwdXQkMGJkOGM1OGMtODQyZC00ZDVkLTk2NzItMTRhM2VhNmU5Y2U2CXN0clJlc3VsdAAAAAAAAAAA</Icerik>
+    </is_akis>
+  </is_akislari>
+  <alt_sorgular>
+    <alt_sorgu>
+      <Adi>AltSorgu(P_1)</Adi>
+      <Aciklama>aLT SORGU DENEMESİ</Aciklama>
+      <Icerik>(
+    SELECT 
+        CHARASGN2.CHARVALREF
+    FROM 
+        {CHARASGN} CHARASGN2
+    WHERE
+        CHARASGN2.ITEMREF = ITEMS.LOGICALREF
+        AND CHARASGN2.LINENR = 'TE' OR CHARASGN2.LINENR = 'TE'
+)
+ = @_PART_{P_1}</Icerik>
+    </alt_sorgu>
+  </alt_sorgular>
+</PROJE>

@@ -1,0 +1,30 @@
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\bin\Debug\TerapiYazilim.exe.config
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\bin\Debug\TerapiYazilim.exe
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\bin\Debug\TerapiYazilim.pdb
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.csprojResolveAssemblyReference.cache
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.AnaEkran.resources
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.Properties.Resources.resources
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.csproj.GenerateResource.Cache
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.exe
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.pdb
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\bin\Debug\TerapiDLL.dll
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\bin\Debug\TerapiDLL.pdb
+C:\Users\Güven\Documents\Visual Studio 2012\Projects\TerapiYazilim\TerapiYazilim\obj\Debug\TerapiYazilim.Gostergeler.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\_EXT\Veriler.xml
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\TerapiYazilim.exe.config
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\TerapiYazilim.exe
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\TerapiYazilim.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\TerapiDLL.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\TerapiDLL.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.csprojResolveAssemblyReference.cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.AnaEkran.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.Properties.Resources.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.csproj.GenerateResource.Cache
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.exe
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.pdb
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.exe.licenses
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.NodeEditorEkran.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.NodeUser.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\obj\Debug\TerapiYazilim.frmAnaEkranTest.resources
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\_EXT\ScintillaNET.dll
+D:\PROJELER\ARGE_TRP\SQL_Query\XMLMesajSorgu\TerapiYazilim\bin\Debug\ScintillaNET.dll
